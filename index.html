@@ -2,7 +2,7 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>英検4級 鬼トレ</title>
 <style>
 :root{--bg:#f5f7fb;--card:#fff;--ink:#1f2937;--sub:#64748b;--line:#dbe4f0;--accent:#2563eb;--ok:#15803d;--ng:#b91c1c;--soft:#eef5ff;--shadow:0 12px 30px rgba(15,23,42,.08)}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);touch-action:manipulation}button{font:inherit}.app{max-width:900px;margin:auto;padding:18px 16px 90px}header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}h1{font-size:clamp(24px,5vw,36px);margin:0}.badge{background:#111827;color:#fff;padding:8px 12px;border-radius:999px;font-weight:800}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.homebtn{min-height:130px;border:0;border-radius:22px;text-align:left;padding:18px;background:#fff;box-shadow:var(--shadow);border:1px solid var(--line)}.homebtn b{font-size:22px;display:block;margin-bottom:7px}.homebtn span{color:var(--sub);line-height:1.5}.wide{grid-column:1/-1}.hidden{display:none!important}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.back{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 14px;font-weight:800}.pill{display:inline-block;background:var(--soft);color:#1d4ed8;border-radius:999px;padding:7px 11px;font-weight:800;font-size:13px}.qtitle{font-size:21px;font-weight:900;line-height:1.45;margin:14px 0}.sub{color:var(--sub);line-height:1.6}.options{display:grid;gap:10px;margin-top:16px}.opt{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px;text-align:left;font-weight:800;min-height:54px}.opt.ok{border-color:#86efac;background:#f0fdf4;color:#166534}.opt.ng{border-color:#fecaca;background:#fef2f2;color:#991b1b}.primary{border:0;background:var(--accent);color:#fff;border-radius:16px;padding:14px 18px;font-weight:900}.secondary{border:1px solid var(--line);background:#fff;border-radius:16px;padding:13px 16px;font-weight:800}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.progress{height:10px;border-radius:999px;background:#e5e7eb;overflow:hidden;margin:10px 0 18px}.progress>i{display:block;height:100%;background:#2563eb;width:0}.result{padding:14px;border-radius:16px;margin-top:14px;background:#f8fafc;border:1px solid var(--line)}.score{font-size:52px;font-weight:1000}.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.menubtn{border:1px solid var(--line);background:white;border-radius:16px;padding:14px;font-weight:900}.menubtn.sel{background:#111827;color:#fff}.alpha{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:18px 0}.letter{width:50px;height:50px;border:1px solid var(--line);background:#fff;border-radius:14px;font-size:22px;font-weight:900}.answerbox{min-height:54px;padding:13px;border-radius:14px;background:#f8fafc;border:1px dashed #94a3b8;font-size:24px;font-weight:900;letter-spacing:.04em}.speak{border:0;background:#eef2ff;border-radius:999px;padding:8px 12px;font-weight:900}.fallbox{position:relative;height:360px;background:linear-gradient(#eff6ff,#fff);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:14px 0}.fallword{position:absolute;left:50%;transform:translateX(-50%);font-size:30px;font-weight:1000;background:white;border:1px solid #bfdbfe;padding:10px 18px;border-radius:16px;white-space:nowrap;box-shadow:var(--shadow)}.passage{font-size:17px;line-height:1.8;background:#fbfdff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}.passage .line{display:block;padding:3px 6px;border-radius:8px}.passage .line.tap{cursor:pointer}.passage .line.hit{background:#dcfce7}.passage .line.dim{opacity:.26}.infoGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.infoCell{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}.small{font-size:13px;color:var(--sub)}.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);padding:12px 18px;background:#111827;color:#fff;border-radius:999px;font-weight:900;z-index:30;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1}.weak{font-size:14px;color:#7c2d12;background:#fff7ed;border-radius:999px;padding:6px 10px}.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:6px}.tab{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-weight:800}.tab.sel{background:#111827;color:white}.chunk-en{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}.chunk-en span{background:#eff6ff;color:#1e3a8a;border:1px solid #bfdbfe;border-radius:12px;padding:10px 12px;font-weight:900;font-size:18px}.chunk-en i{color:#94a3b8;font-style:normal;font-weight:900}.chunk-answer{min-height:76px;padding:12px;border-radius:16px;background:#fff7ed;border:2px dashed #fdba74;display:flex;gap:8px;flex-wrap:wrap;align-content:flex-start}.chunk-answer:empty:before{content:'下の日本語チャンクを順番にタップ';color:#9a3412;font-size:14px}.chunk-pool{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.chunk-piece{border:1px solid #cbd5e1;background:#fff;border-radius:14px;padding:12px 14px;font-weight:900;min-height:48px}.chunk-piece.chosen{background:#fff7ed;border-color:#fb923c}.chunk-map{display:grid;gap:7px;margin-top:10px}.chunk-map div{padding:8px 10px;border-radius:10px;background:#f8fafc}.chunk-map b{color:#1d4ed8}@media(max-width:620px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}.app{padding:12px 10px 80px}.homebtn{min-height:105px}.infoGrid{grid-template-columns:1fr}.chunk-en span{font-size:16px}.chunk-piece{padding:11px}}
-.homebtn.chunk-home{grid-column:1/-1;min-height:145px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:3px solid #f97316;box-shadow:0 14px 30px rgba(234,88,12,.18)}.homebtn.chunk-home b{color:#c2410c;font-size:26px}.homebtn.chunk-home span{color:#7c2d12;font-weight:700}.newtag{display:inline-block;margin-left:8px;padding:4px 9px;border-radius:999px;background:#ea580c;color:white;font-size:12px;vertical-align:middle}.chunk-built{display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex:1}.chunk-built:empty:before{content:'下の英文チャンクを順番にタップ';color:#9a3412;font-size:14px}.chunk-punct{font-size:30px;font-weight:1000;color:#1f2937;align-self:center;padding:0 4px}@media(max-width:620px){.homebtn.chunk-home{min-height:125px}.homebtn.chunk-home b{font-size:22px}}
+.homebtn.chunk-home{grid-column:1/-1;min-height:145px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:3px solid #f97316;box-shadow:0 14px 30px rgba(234,88,12,.18)}.homebtn.chunk-home b{color:#c2410c;font-size:26px}.homebtn.chunk-home span{color:#7c2d12;font-weight:700}.newtag{display:inline-block;margin-left:8px;padding:4px 9px;border-radius:999px;background:#ea580c;color:white;font-size:12px;vertical-align:middle}.chunk-built{display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex:1}.chunk-built:empty:before{content:'下の英文チャンクを順番にタップ';color:#9a3412;font-size:14px}.chunk-punct{font-size:30px;font-weight:1000;color:#1f2937;align-self:center;padding:0 4px}.jp-mark{background:linear-gradient(transparent 45%,#fde047 45%);color:inherit;padding:0 .05em;border-radius:3px}@media(max-width:620px){.homebtn.chunk-home{min-height:125px}.homebtn.chunk-home b{font-size:22px}}
 </style></head><body><div class="app">
 <header><div><h1>英検4級 鬼トレ</h1><div class="sub">過去問・単語・熟語・文法・チャンク＋読解ラボ</div></div><span class="badge">時間制限なし</span></header>
 <section id="home" class="grid">
@@ -54,11 +54,52 @@ const CHUNKS=[
 {cat:'助動詞',en:['I','can','meet','you','at twelve thirty','at the station'],ja:['私は','12時30分に','駅で','あなたに会えます。'],map:['私は','～できます','会う','あなたに','12時30分に','駅で']},
 {cat:'命令文',en:['Please','come','ten minutes','early'],ja:['10分早く','来てください。'],map:['ください','来て','10分','早く']}
 ];
+const CHUNK_MARKS=[
+['私は','うれしいです','会えて','あなたに'],
+['ください','教えて','行き方','行き方','駅への'],
+['彼女は','掃除しました','その部屋を','昨日'],
+['私たちは','予定です','そこへ行く','明日'],
+['選手たちは','できます','休む','今日は'],
+['いつ','終えますか','あなたは','終え','掃除','部屋の'],
+['図書館は','開いています','開いています','9時から','7時まで'],
+['私は','困っています','宿題で','宿題'],
+['スミスさんは','たいてい','します','家事を','日曜日の朝に'],
+['ダニエルは','です','14','歳'],
+['ヘンリーは','帰宅しました','学校から','早く','昨日','ので','病気だった'],
+['洗いなさい','皿を','まず'],
+['私は','いつも','よくできます','数学の授業では'],
+['どのくらいの長さ','ですか','その映画は'],
+['フランクは','喉が渇いていた','ので','フランクは','飲みました','水を1杯'],
+['新しい博物館は','です','おもしろい','おもしろい','より','古い博物館'],
+['メアリーは','着替えました','服を','とき','メアリーは','帰宅した'],
+['この数学の問題は','です','難しい','難しい','より','あの問題'],
+['あります','2つ','博物館が','その町には'],
+['ケンは','起きました','7時に','土曜日の'],
+['まず','彼は','食べて','朝食を','食べて','掃除しました','部屋を'],
+['彼らは','行きました','図書館へ','取り組むために','科学の課題に','科学の課題'],
+['ケンは','帰宅して','5時に','帰宅して','手伝いました','母が','作る','夕食を'],
+['彼は','疲れていました','が','彼は','楽しみました','その日を'],
+['ミナは','入りました','料理クラブに','4月に'],
+['最初は','彼女は','使えませんでした','使え','包丁を','上手に'],
+['先生は','教えました','彼女に','方法','切る','野菜を','安全に'],
+['ミナは','練習しました','毎週火曜日の','放課後に'],
+['彼女は','作りました','カレーを','ために','家族の'],
+['父が','言った','おいしい','おいしい','ので','ミナは','とてもうれしかったです'],
+['私は','ます','持っていき','サンドイッチを'],
+['たら','雨が降っ','ましょう','行き','科学博物館へ','代わりに'],
+['ありがとう','誘ってくれて','誘ってくれて','公園へ','土曜日に'],
+['私は','あります','ピアノのレッスン','まで','11時30分'],
+['私は','会えます','会え','あなたに','12時30分に','駅で'],
+['ください','来て','10分','早く']
+];
+CHUNKS.forEach((x,i)=>x.mark=CHUNK_MARKS[i]);
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)], rnd=n=>Math.floor(Math.random()*n), shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}, sample=(a,n)=>shuffle(a).slice(0,n);
 const LS='eiken4_oni_v1'; function load(){try{return JSON.parse(localStorage.getItem(LS)||'{}')}catch{return {}}} function save(x){localStorage.setItem(LS,JSON.stringify(x))};
 function logWeak(app,key,ok){const d=load();d.weak=d.weak||{};const k=app+'|'+key;const z=d.weak[k]||{w:0,c:0};ok?z.c++:z.w++;d.weak[k]=z;save(d)}
 function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1200)}
 function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function escHtml(t){return String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function markedJapanese(x,picked){const t=x.ja.join(''),hit=Array(t.length).fill(false);picked.forEach((id,pos)=>{if(id!==pos)return;const m=x.mark?.[id];if(!m)return;const at=t.indexOf(m);if(at<0)return;for(let j=at;j<at+m.length;j++)hit[j]=true});let out='',on=false;for(let j=0;j<t.length;j++){if(hit[j]&&!on){out+='<mark class="jp-mark">';on=true}if(!hit[j]&&on){out+='</mark>';on=false}out+=escHtml(t[j])}if(on)out+='</mark>';return out}
 function show(html){$('#home').classList.add('hidden');$('#screen').classList.remove('hidden');$('#screen').innerHTML=html} function home(){$('#screen').classList.add('hidden');$('#screen').innerHTML='';$('#home').classList.remove('hidden')}
 function shell(title,body){return `<div class="topline"><button class="back" onclick="home()">← 戻る</button><span class="pill">${title}</span></div>${body}`}
 $$('[data-go]').forEach(b=>b.onclick=()=>({past:startPast,vocab:vocabMenu,phrase:phraseApp,grammar:grammarMenu,chunk:chunkMenu,reading:readingMenu}[b.dataset.go]()))
@@ -85,7 +126,45 @@ function grammarMenu(){let cats=[...new Set(GRAMMAR.map(x=>x.cat))];show(shell('
 function runGrammar(items){let i=0,score=0,wrong=[];function r(){if(i>=items.length)return done();let x=items[i];show(shell('文法',`<div class="row"><span class="pill">${i+1} / ${items.length}</span><span class="pill">${x.cat}</span></div><div class="card"><div class="small">${x.src}</div><div class="qtitle">${x.q}</div><div class="sub">${x.prompt}</div><div class="options">${x.opts.map((o,j)=>`<button class="opt" data-a="${j}">${j+1}. ${o}</button>`).join('')}</div><div class="row" style="margin-top:12px"><button class="secondary" id="jp">日本語訳を見る</button></div><div id="jpbox" class="result hidden">${x.jp}</div></div>`));$('#jp').onclick=()=>$('#jpbox').classList.toggle('hidden');$$('[data-a]').forEach(b=>b.onclick=()=>{let ok=+b.dataset.a===x.a;b.classList.add(ok?'ok':'ng');if(ok)score++;else wrong.push(x);logWeak('grammar',x.q,ok);toast(ok?'○ 正解':'× 正解：'+x.opts[x.a]);setTimeout(()=>{i++;r()},650)})}function done(){show(shell('文法',`<div class="card"><div class="score">${score} / ${items.length}</div><p>誤答 ${wrong.length}問</p>${wrong.length?'<button class="secondary" id="rv">誤答だけ復習</button>':''} <button class="primary" onclick="grammarMenu()">範囲選択へ</button></div>`));if($('#rv'))$('#rv').onclick=()=>runGrammar(wrong)}r()}
 
 function chunkMenu(){let cats=[...new Set(CHUNKS.map(x=>x.cat))];show(shell('英文チャンク',`<div class="tabs"><button class="tab sel" data-cc="all">全範囲</button>${cats.map(c=>`<button class="tab" data-cc="${c}">${c}</button>`).join('')}</div><div class="card" style="margin-top:12px"><p class="sub">日本語の設問文を読み、下の英文チャンクを正しい英文語順になるようにタップします。</p><p class="small">英語は「主語→動詞」を軸に、助動詞・目的語・場所・時などを組み立てます。句点や疑問符は解答欄の末尾に固定されています。</p><button class="primary" id="cstart">10問スタート</button></div>`));let cat='all';function count(){let n=cat==='all'?CHUNKS.length:CHUNKS.filter(x=>x.cat===cat).length;$('#cstart').textContent=`${Math.min(10,n)}問スタート`}$$('[data-cc]').forEach(b=>b.onclick=()=>{cat=b.dataset.cc;$$('[data-cc]').forEach(z=>z.classList.toggle('sel',z===b));count()});$('#cstart').onclick=()=>{let bank=cat==='all'?CHUNKS:CHUNKS.filter(x=>x.cat===cat);runChunks(sample(bank,Math.min(10,bank.length)),cat)}}
-function runChunks(items,selectedCat='all'){let i=0,score=0,wrong=[];function render(){if(i>=items.length)return finish();let x=items[i],picked=[],firstTry=true,end=x.end||'.',fullEn=x.full||x.en.join(' ')+end;show(shell('英文チャンク',`<div class="row"><span class="pill">${i+1} / ${items.length}</span><span class="pill">${x.cat}</span><span class="weak">正解 ${score}</span></div><div class="progress"><i style="width:${100*i/items.length}%"></i></div><div class="card"><div class="small">次の日本語を英文にする</div><div class="qtitle">${x.ja.join('')}</div><div class="small">英文チャンクを正しい語順に並べる</div><div class="chunk-answer"><div class="chunk-built" id="cbuilt"></div><span class="chunk-punct">${end}</span></div><div class="chunk-pool">${shuffle(x.en.map((text,id)=>({text,id}))).map(z=>`<button class="chunk-piece" data-ci="${z.id}">${z.text}</button>`).join('')}</div><div class="row"><button class="secondary" id="cundo">1つ戻す</button><button class="secondary" id="creset">全部やり直す</button><button class="primary" id="ccheck">決定</button></div><div id="cfeedback" class="result hidden"></div></div>`));function paint(){$('#cbuilt').innerHTML=picked.map(id=>`<button class="chunk-piece chosen" data-picked="${id}">${x.en[id]}</button>`).join('');$$('[data-ci]').forEach(b=>b.disabled=picked.includes(+b.dataset.ci));$$('[data-picked]').forEach(b=>b.onclick=()=>{let pos=picked.indexOf(+b.dataset.picked);picked.splice(pos,1);paint()})}$$('[data-ci]').forEach(b=>b.onclick=()=>{picked.push(+b.dataset.ci);paint()});$('#cundo').onclick=()=>{picked.pop();paint()};$('#creset').onclick=()=>{picked=[];paint()};$('#ccheck').onclick=()=>{if(picked.length!==x.en.length)return toast('すべての英文チャンクを並べよう');let ok=picked.every((id,j)=>id===j);if(ok){if(firstTry)score++;logWeak('chunk',fullEn,true);toast('○ 正解');$('#cfeedback').classList.remove('hidden');$('#cfeedback').innerHTML=`<div class="row"><b>完成英文：</b><button class="speak" id="canswerSpeak">🔊 全文を聞く</button></div><div class="qtitle">${fullEn}</div><div class="chunk-map">${x.en.map((z,j)=>`<div><b>${z}</b> → ${x.map[j]}</div>`).join('')}</div><button class="primary" id="cnext" style="margin-top:12px">次へ</button>`;$('#canswerSpeak').onclick=()=>speak(fullEn);$('#cnext').onclick=()=>{i++;render()}}else{if(firstTry){wrong.push(x);logWeak('chunk',fullEn,false)}firstTry=false;toast('× 英文の語順を見直そう');$('#cfeedback').classList.remove('hidden');$('#cfeedback').innerHTML='<b>ヒント：</b>まず主語と動詞を決め、助動詞・目的語・場所・時をつなげよう。'}};paint()}function finish(){show(shell('英文チャンク',`<div class="card"><div class="small">10問ドリル終了</div><div class="score">${score} / ${items.length}</div><p>初回で正解できなかった問題：${wrong.length}問</p><div class="row"><button class="primary" id="cagain">もう1ターン</button>${wrong.length?'<button class="secondary" id="creview">誤答だけ復習</button>':''}<button class="secondary" onclick="chunkMenu()">範囲選択へ</button></div></div>`));$('#cagain').onclick=()=>{let bank=selectedCat==='all'?CHUNKS:CHUNKS.filter(x=>x.cat===selectedCat);runChunks(sample(bank,Math.min(10,bank.length)),selectedCat)};if($('#creview'))$('#creview').onclick=()=>runChunks(wrong,selectedCat)}render()}
+function runChunks(items,selectedCat='all'){
+ let i=0,score=0,wrong=[];
+ function render(){
+  if(i>=items.length)return finish();
+  let x=items[i],picked=[],firstTry=true,end=x.end||'.',fullEn=x.full||x.en.join(' ')+end;
+  show(shell('英文チャンク',`<div class="row"><span class="pill">${i+1} / ${items.length}</span><span class="pill">${x.cat}</span><span class="weak">正解 ${score}</span></div><div class="progress"><i style="width:${100*i/items.length}%"></i></div><div class="card"><div class="small">次の日本語を英文にする</div><div class="qtitle" id="jpPrompt">${markedJapanese(x,picked)}</div><div class="small">英文チャンクを正しい語順に並べる（正しい位置なら日本語が色づきます）</div><div class="chunk-answer"><div class="chunk-built" id="cbuilt"></div><span class="chunk-punct">${end}</span></div><div class="chunk-pool">${shuffle(x.en.map((text,id)=>({text,id}))).map(z=>`<button class="chunk-piece" data-ci="${z.id}">${z.text}</button>`).join('')}</div><div class="row"><button class="secondary" id="cundo">1つ戻す</button><button class="secondary" id="creset">全部やり直す</button><button class="primary" id="ccheck">決定</button></div><div id="cfeedback" class="result hidden"></div></div>`));
+  function paint(){
+   $('#cbuilt').innerHTML=picked.map(id=>`<button class="chunk-piece chosen" data-picked="${id}">${x.en[id]}</button>`).join('');
+   $('#jpPrompt').innerHTML=markedJapanese(x,picked);
+   $$('[data-ci]').forEach(b=>b.disabled=picked.includes(+b.dataset.ci));
+   $$('[data-picked]').forEach(b=>b.onclick=()=>{let pos=picked.indexOf(+b.dataset.picked);picked.splice(pos,1);paint()})
+  }
+  $$('[data-ci]').forEach(b=>b.onclick=()=>{picked.push(+b.dataset.ci);paint()});
+  $('#cundo').onclick=()=>{picked.pop();paint()};
+  $('#creset').onclick=()=>{picked=[];paint()};
+  $('#ccheck').onclick=()=>{
+   if(picked.length!==x.en.length)return toast('すべての英文チャンクを並べよう');
+   let ok=picked.every((id,j)=>id===j);
+   if(ok){
+    if(firstTry)score++;
+    logWeak('chunk',fullEn,true);toast('○ 正解');
+    $('#cfeedback').classList.remove('hidden');
+    $('#cfeedback').innerHTML=`<div class="row"><b>完成英文：</b><button class="speak" id="canswerSpeak">🔊 全文を聞く</button></div><div class="qtitle">${fullEn}</div><div class="chunk-map">${x.en.map((z,j)=>`<div><b>${z}</b> → ${x.map[j]}</div>`).join('')}</div><button class="primary" id="cnext" style="margin-top:12px">次へ</button>`;
+    $('#canswerSpeak').onclick=()=>speak(fullEn);$('#cnext').onclick=()=>{i++;render()}
+   }else{
+    if(firstTry){wrong.push(x);logWeak('chunk',fullEn,false)}firstTry=false;
+    toast('× 英文の語順を見直そう');$('#cfeedback').classList.remove('hidden');
+    $('#cfeedback').innerHTML='<b>ヒント：</b>黄色にならないチャンクは、置く位置を見直そう。'
+   }
+  };
+  paint()
+ }
+ function finish(){
+  show(shell('英文チャンク',`<div class="card"><div class="small">10問ドリル終了</div><div class="score">${score} / ${items.length}</div><p>初回で正解できなかった問題：${wrong.length}問</p><div class="row"><button class="primary" id="cagain">もう1ターン</button>${wrong.length?'<button class="secondary" id="creview">誤答だけ復習</button>':''}<button class="secondary" onclick="chunkMenu()">範囲選択へ</button></div></div>`));
+  $('#cagain').onclick=()=>{let bank=selectedCat==='all'?CHUNKS:CHUNKS.filter(x=>x.cat===selectedCat);runChunks(sample(bank,Math.min(10,bank.length)),selectedCat)};
+  if($('#creview'))$('#creview').onclick=()=>runChunks(wrong,selectedCat)
+ }
+ render()
+}
 
 function readingMenu(){show(shell('読解ラボ',`<div class="menu"><button class="menubtn" data-rm="exam">本番型</button><button class="menubtn" data-rm="evidence">証拠文タップ</button><button class="menubtn" data-rm="info">Who / When / Where / What</button><button class="menubtn" data-rm="timeline">時系列並べ替え</button><button class="menubtn wide" data-rm="filter">不要情報を消せ</button></div><p class="sub">説明文・Eメール・手紙・掲示を「答える」だけでなく、「根拠を探す」読み方にします。</p>`));$$('[data-rm]').forEach(b=>b.onclick=()=>readingRun(b.dataset.rm))}
 function readingRun(mode){const r=READINGS[rnd(READINGS.length)];if(mode==='exam'){let items=r.qs.map(z=>({type:'reading',cat:r.kind,q:z.q,opts:z.opts,a:z.a,passage:r}));return runQuiz('読解・本番型',items,'reading')}if(mode==='evidence')return evidence(r);if(mode==='info')return infoMode(r);if(mode==='timeline')return timelineMode(r);return filterMode(r)}
