@@ -430,18 +430,24 @@ updateHomeMilestone();
 
 let FULL_EXAM=null,FULL_TIMER=null;
 function stopFullTimer(){if(FULL_TIMER){clearInterval(FULL_TIMER);FULL_TIMER=null}}
+function fullItemKey(x){return x.id||x.key||x.q||x.title||(x.en?x.en.join(' '):JSON.stringify(x))}
+function pickFreshFull(pool,n,group){
+ const d=load();d.fullSeen=d.fullSeen||{};d.fullLast=d.fullLast||{};let seen=d.fullSeen[group]||[],fresh=pool.filter(x=>!seen.includes(fullItemKey(x)));
+ if(fresh.length<n){const last=d.fullLast[group]||[];seen=[];fresh=pool.filter(x=>!last.includes(fullItemKey(x)));if(fresh.length<n)fresh=[...pool]}
+ const picked=sample(fresh,Math.min(n,fresh.length)),keys=picked.map(fullItemKey);d.fullSeen[group]=[...seen,...keys];d.fullLast[group]=keys;save(d);return picked
+}
 function fullOrderQuestion(x,n){const pairs=[];for(let i=0;i<x.en.length;i++)for(let j=0;j<x.en.length;j++)if(i!==j)pairs.push(`${x.en[i]} / ${x.en[j]}`);const correct=`${x.en[1]} / ${x.en[3]}`,opts=shuffle([correct,...sample([...new Set(pairs.filter(z=>z!==correct))],3)]);return {section:'R3 語句整序',q:`日本文に合うように並べたとき、2番目と4番目に来る組み合わせを選びなさい。`,context:`${x.ja.join('')}\n語句：${shuffle(x.en).join(' ／ ')}`,opts,a:opts.indexOf(correct),rec:'chunk',key:`整序${n}:${x.en.join(' ')}`}}
 function buildFullReading(){
- const short=sample(PAST.filter(x=>x.cat==='語彙'||x.cat==='文法'),15).map((x,i)=>({section:'R1 短文空所補充',q:plain(x.q),opts:[...x.opts],a:x.a,rec:x.cat==='語彙'?'fall':'grammar',key:`短文${i+1}:${plain(x.q)}`}));
- const conv=sample(PAST.filter(x=>x.cat==='会話'),5).map((x,i)=>({section:'R2 会話文空所補充',q:plain(x.q),opts:[...x.opts],a:x.a,rec:'phrase',key:`会話${i+1}:${plain(x.q)}`}));
- const order=sample(CHUNKS.filter(x=>x.en.length>=4),5).map((x,i)=>fullOrderQuestion(x,i+1));
- const reading=sample(READINGS.flatMap(r=>r.qs.map(q=>({r,q}))),10).map((z,i)=>({section:'R4 長文内容一致',q:z.q.q,context:`${z.r.title}\n${z.r.text.join('\n')}`,opts:[...z.q.opts],a:z.q.a,rec:diagnosisFor('past',{type:'reading',q:z.q.q}),key:`長文${i+1}:${z.r.title}:${z.q.q}`}));
+ const short=pickFreshFull(PAST.filter(x=>(x.cat==='語彙'||x.cat==='文法')&&x.opts),15,'reading-short').map((x,i)=>({section:'R1 短文空所補充',q:plain(x.q),opts:[...x.opts],a:x.a,rec:x.cat==='語彙'?'fall':'grammar',key:`短文${i+1}:${plain(x.q)}`}));
+ const conv=pickFreshFull(PAST.filter(x=>x.cat==='会話'),5,'reading-conversation').map((x,i)=>({section:'R2 会話文空所補充',q:plain(x.q),opts:[...x.opts],a:x.a,rec:'phrase',key:`会話${i+1}:${plain(x.q)}`}));
+ const order=pickFreshFull(CHUNKS.filter(x=>x.en.length>=4),5,'reading-order').map((x,i)=>fullOrderQuestion(x,i+1));
+ const reading=pickFreshFull(READINGS.flatMap(r=>r.qs.map(q=>({r,q,key:`${r.title}|${q.q}`}))),10,'reading-long').map((z,i)=>({section:'R4 長文内容一致',q:z.q.q,context:`${z.r.title}\n${z.r.text.join('\n')}`,opts:[...z.q.opts],a:z.q.a,rec:diagnosisFor('past',{type:'reading',q:z.q.q}),key:`長文${i+1}:${z.r.title}:${z.q.q}`}));
  return [...short,...conv,...order,...reading]
 }
-function buildFullListening(){return LISTENING_MOCK.map((x,i)=>({...x,section:`L${x.part} ${x.part===1?'応答文選択':x.part===2?'会話内容一致':'文の内容一致'}`,q:x.part===1?'会話を聞き、最も自然な応答を選びなさい。':'音声を聞き、質問に答えなさい。',key:`リスニング${i+1}`}))}
+function buildFullListening(){const picked=[1,2,3].flatMap(part=>pickFreshFull(LISTENING_BANK.filter(x=>x.part===part),10,`listening-part${part}`));return picked.map((x,i)=>({...x,section:`L${x.part} ${x.part===1?'応答文選択':x.part===2?'会話内容一致':'文の内容一致'}`,q:x.part===1?'会話を聞き、最も自然な応答を選びなさい。':'音声を聞き、質問に答えなさい。',key:`リスニング${i+1}:${x.id}`}))}
 function startFullMock(){
  if(!fullMockUnlocked()){toast('ミニ過去問で8割超えを達成すると解禁！');return}
- show(shell('本番モード',`<div class="card"><span class="pill">解禁済み</span><div class="qtitle">オリジナル本番模試</div><div class="infoGrid"><div class="infoCell"><b>リーディング</b><br>35問・35分</div><div class="infoCell"><b>リスニング</b><br>30問・約30分</div></div><p class="sub">途中では正誤・日本語訳・ヒントを表示しません。リスニングは各問題を2回読み上げます。終了後に、大問別成績と復習メニューを作ります。</p><p class="weak">約65分の鬼トレです。途中でホームへ戻ると答案は破棄されます。</p><button class="primary" id="fullStart">本番模試を開始</button></div>`));$('#fullStart').onclick=beginFullMock
+ show(shell('本番モード',`<div class="card"><span class="pill">解禁済み</span><div class="qtitle">オリジナル本番模試</div><div class="infoGrid"><div class="infoCell"><b>リーディング</b><br>35問・35分</div><div class="infoCell"><b>リスニング</b><br>30問・約30分</div></div><p class="sub">問題バンクから毎回別セットを作ります。直前の模試と同じ問題は出ません。途中では正誤・日本語訳・ヒントを表示せず、リスニングは各問題を2回読み上げます。</p><p class="weak">約65分の鬼トレです。途中でホームへ戻ると答案は破棄されます。</p><button class="primary" id="fullStart">本番模試を開始</button></div>`));$('#fullStart').onclick=beginFullMock
 }
 function beginFullMock(){primeFanfare();FULL_EXAM={id:Date.now(),phase:'reading',index:0,reading:buildFullReading(),listening:buildFullListening(),rAns:Array(35).fill(null),lAns:Array(30).fill(null),startedAt:Date.now()};startFullPhase(35)}
 function startFullPhase(minutes){stopFullTimer();FULL_EXAM.deadline=Date.now()+minutes*60*1000;FULL_TIMER=setInterval(updateFullClock,1000);renderFullQuestion()}
